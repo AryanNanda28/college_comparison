@@ -34,23 +34,14 @@
         button:hover {
             background-color: #0056b3;
         }
-        .parameters {
-            margin: 10px 0;
-            text-align: left;
-        }
-        .parameter-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-        .parameter-item input {
-            margin-right: 10px;
+        h1 {
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hello, <span id="userName"></span></h1>
+        <h1>Hello, <span id="userNameDisplay"></span></h1>
         <h2>Select Colleges and Parameters</h2>
         
         <div id="collegeDropdowns">
@@ -93,7 +84,6 @@
                 <option value="Delhi School of Economics">Delhi School of Economics</option>
                 <option value="Faculty of Management Studies">Faculty of Management Studies</option>
                 <option value="National Law University Delhi">National Law University Delhi</option>
-                <!-- Add other options here -->
             </select>
 
             <label for="college2">Select College 2:</label>
@@ -135,7 +125,6 @@
                 <option value="Delhi School of Economics">Delhi School of Economics</option>
                 <option value="Faculty of Management Studies">Faculty of Management Studies</option>
                 <option value="National Law University Delhi">National Law University Delhi</option>
-                <!-- Add other options here -->
             </select>
 
             <label for="college3">Select College 3:</label>
@@ -177,69 +166,41 @@
                 <option value="Delhi School of Economics">Delhi School of Economics</option>
                 <option value="Faculty of Management Studies">Faculty of Management Studies</option>
                 <option value="National Law University Delhi">National Law University Delhi</option>
-                <!-- Add other options here -->
             </select>
         </div>
-
-        <div class="parameters">
-            <label>Select Parameters:</label>
-            <div class="parameter-item">
-                <input type="checkbox" id="parameter1" name="parameter" value="parameter1">
-                <label for="parameter1">NIRF Ranking</label>
-            </div>
-            <div class="parameter-item">
-                <input type="checkbox" id="parameter2" name="parameter" value="parameter2">
-                <label for="parameter2">Acceptance Rate</label>
-            </div>
-            <div class="parameter-item">
-                <input type="checkbox" id="parameter2" name="parameter" value="parameter3">
-                <label for="parameter3">Tuition Fee</label>
-            </div>
-            <div class="parameter-item">
-                <input type="checkbox" id="parameter2" name="parameter" value="parameter3">
-                <label for="parameter3">Courses Available</label>
-            </div>
-            <!-- Add more parameters here -->
+        
+        <div id="parameterCheckboxes">
+            <h3>Select Parameters:</h3>
+            <label><input type="checkbox" value="NIRF Ranking"> NIRF Ranking</label><br>
+            <label><input type="checkbox" value="Acceptance Rate"> Acceptance Rate</label><br>
+            <label><input type="checkbox" value="Tuition Fee"> Tuition Fee</label><br>
+            <label><input type="checkbox" value="Courses Available"> Courses Available</label><br>
+            <!-- Add more parameters as needed -->
         </div>
 
-        <button onclick="compareColleges()">Submit</button>
+        <button onclick="submitSelection()">Submit</button>
     </div>
 
     <script>
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
-            const userName = getCookie('username') || 'Guest';
-            document.getElementById('userName').textContent = userName;
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                document.getElementById('userNameDisplay').textContent = userName;
+            }
         });
 
-        function compareColleges() {
+        function submitSelection() {
             const selectedColleges = [
                 document.getElementById('college1').value,
                 document.getElementById('college2').value,
                 document.getElementById('college3').value
-            ].filter(Boolean); // Filters out any empty selections
+            ].filter(Boolean);
 
-            const selectedParameters = Array.from(document.querySelectorAll('input[name="parameter"]:checked'))
-                .map(checkbox => checkbox.nextElementSibling.textContent);
-
-            if (selectedColleges.length === 0) {
-                alert("Please select at least one college.");
-                return;
-            }
-
-            if (selectedParameters.length === 0) {
-                alert("Please select at least one parameter.");
-                return;
-            }
+            const selectedParameters = Array.from(document.querySelectorAll('#parameterCheckboxes input[type="checkbox"]:checked'))
+                .map(checkbox => checkbox.value);
 
             localStorage.setItem('selectedColleges', JSON.stringify(selectedColleges));
             localStorage.setItem('selectedParameters', JSON.stringify(selectedParameters));
-
             window.location.href = 'comparison_table.html';
         }
     </script>
