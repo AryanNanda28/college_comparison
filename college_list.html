@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Colleges and Parameters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .parameters {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .parameter-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .parameter-item input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, <span id="userName"></span></h1>
+        <h2>Select Colleges and Parameters</h2>
+        
+        <div id="collegeDropdowns">
+            <label for="college1">Select College 1:</label>
+            <select id="college1">
+                <option value="">Search and Select College</option>
+                <option value="Shri Ram College of Commerce">Shri Ram College of Commerce</option>
+                <option value="Acharya Narendra Dev College">Acharya Narendra Dev College</option>
+                <option value="Aditi Mahavidyalaya">Aditi Mahavidyalaya</option>
+                <option value="Aryabhatta College">Aryabhatta College</option>
+                <option value="Bhagini Nivedita College">Bhagini Nivedita College</option>
+                <option value="Bharti College">Bharti College</option>
+                <option value="College of Vocational Studies">College of Vocational Studies</option>
+                <option value="Daulat Ram College">Daulat Ram College</option>
+                <option value="Delhi College of Arts and Commerce">Delhi College of Arts and Commerce</option>
+                <option value="Deshbandhu College">Deshbandhu College</option>
+                <option value="Dyal Singh College">Dyal Singh College</option>
+                <option value="Hansraj College">Hansraj College</option>
+                <option value="Hindu College">Hindu College</option>
+                <option value="Indraprastha College for Women">Indraprastha College for Women</option>
+                <option value="Jagannath International Management School">Jagannath International Management School</option>
+                <option value="Jesus and Mary College">Jesus and Mary College</option>
+                <option value="Kamla Nehru College">Kamla Nehru College</option>
+                <option value="Kirori Mal College">Kirori Mal College</option>
+                <option value="Lakshmibai College">Lakshmibai College</option>
+                <option value="Maharaja Agrasen College">Maharaja Agrasen College</option>
+                <option value="Maitreyi College">Maitreyi College</option>
+                <option value="Miranda House">Miranda House</option>
+                <option value="PGDAV College">PGDAV College</option>
+                <option value="Ramanujan College">Ramanujan College</option>
+                <option value="Ramjas College">Ramjas College</option>
+                <option value="Rajdhani College">Rajdhani College</option>
+                <option value="Satyawati College">Satyawati College</option>
+                <option value="Shivaji College">Shivaji College</option>
+                <option value="Sri Aurobindo College">Sri Aurobindo College</option>
+                <option value="Sri Guru Nanak Dev Khalsa College">Sri Guru Nanak Dev Khalsa College</option>
+                <option value="Sri Venkateswara College">Sri Venkateswara College</option>
+                <option value="Swami Shraddhanand College">Swami Shraddhanand College</option>
+                <option value="Zakir Husain Delhi College">Zakir Husain Delhi College</option>
+                <option value="Delhi School of Economics">Delhi School of Economics</option>
+                <option value="Faculty of Management Studies">Faculty of Management Studies</option>
+                <option value="National Law University Delhi">National Law University Delhi</option>
+                <!-- Add other options here -->
+            </select>
+
+            <label for="college2">Select College 2:</label>
+            <select id="college2">
+                <option value="">Search and Select College</option>
+                <option value="Shri Ram College of Commerce">Shri Ram College of Commerce</option>
+                <option value="Acharya Narendra Dev College">Acharya Narendra Dev College</option>
+                <option value="Aditi Mahavidyalaya">Aditi Mahavidyalaya</option>
+                <option value="Aryabhatta College">Aryabhatta College</option>
+                <option value="Bhagini Nivedita College">Bhagini Nivedita College</option>
+                <option value="Bharti College">Bharti College</option>
+                <option value="College of Vocational Studies">College of Vocational Studies</option>
+                <option value="Daulat Ram College">Daulat Ram College</option>
+                <option value="Delhi College of Arts and Commerce">Delhi College of Arts and Commerce</option>
+                <option value="Deshbandhu College">Deshbandhu College</option>
+                <option value="Dyal Singh College">Dyal Singh College</option>
+                <option value="Hansraj College">Hansraj College</option>
+                <option value="Hindu College">Hindu College</option>
+                <option value="Indraprastha College for Women">Indraprastha College for Women</option>
+                <option value="Jagannath International Management School">Jagannath International Management School</option>
+                <option value="Jesus and Mary College">Jesus and Mary College</option>
+                <option value="Kamla Nehru College">Kamla Nehru College</option>
+                <option value="Kirori Mal College">Kirori Mal College</option>
+                <option value="Lakshmibai College">Lakshmibai College</option>
+                <option value="Maharaja Agrasen College">Maharaja Agrasen College</option>
+                <option value="Maitreyi College">Maitreyi College</option>
+                <option value="Miranda House">Miranda House</option>
+                <option value="PGDAV College">PGDAV College</option>
+                <option value="Ramanujan College">Ramanujan College</option>
+                <option value="Ramjas College">Ramjas College</option>
+                <option value="Rajdhani College">Rajdhani College</option>
+                <option value="Satyawati College">Satyawati College</option>
+                <option value="Shivaji College">Shivaji College</option>
+                <option value="Sri Aurobindo College">Sri Aurobindo College</option>
+                <option value="Sri Guru Nanak Dev Khalsa College">Sri Guru Nanak Dev Khalsa College</option>
+                <option value="Sri Venkateswara College">Sri Venkateswara College</option>
+                <option value="Swami Shraddhanand College">Swami Shraddhanand College</option>
+                <option value="Zakir Husain Delhi College">Zakir Husain Delhi College</option>
+                <option value="Delhi School of Economics">Delhi School of Economics</option>
+                <option value="Faculty of Management Studies">Faculty of Management Studies</option>
+                <option value="National Law University Delhi">National Law University Delhi</option>
+                <!-- Add other options here -->
+            </select>
+
+            <label for="college3">Select College 3:</label>
+            <select id="college3">
+                <option value="">Search and Select College</option>
+                <option value="Shri Ram College of Commerce">Shri Ram College of Commerce</option>
+                <option value="Acharya Narendra Dev College">Acharya Narendra Dev College</option>
+                <option value="Aditi Mahavidyalaya">Aditi Mahavidyalaya</option>
+                <option value="Aryabhatta College">Aryabhatta College</option>
+                <option value="Bhagini Nivedita College">Bhagini Nivedita College</option>
+                <option value="Bharti College">Bharti College</option>
+                <option value="College of Vocational Studies">College of Vocational Studies</option>
+                <option value="Daulat Ram College">Daulat Ram College</option>
+                <option value="Delhi College of Arts and Commerce">Delhi College of Arts and Commerce</option>
+                <option value="Deshbandhu College">Deshbandhu College</option>
+                <option value="Dyal Singh College">Dyal Singh College</option>
+                <option value="Hansraj College">Hansraj College</option>
+                <option value="Hindu College">Hindu College</option>
+                <option value="Indraprastha College for Women">Indraprastha College for Women</option>
+                <option value="Jagannath International Management School">Jagannath International Management School</option>
+                <option value="Jesus and Mary College">Jesus and Mary College</option>
+                <option value="Kamla Nehru College">Kamla Nehru College</option>
+                <option value="Kirori Mal College">Kirori Mal College</option>
+                <option value="Lakshmibai College">Lakshmibai College</option>
+                <option value="Maharaja Agrasen College">Maharaja Agrasen College</option>
+                <option value="Maitreyi College">Maitreyi College</option>
+                <option value="Miranda House">Miranda House</option>
+                <option value="PGDAV College">PGDAV College</option>
+                <option value="Ramanujan College">Ramanujan College</option>
+                <option value="Ramjas College">Ramjas College</option>
+                <option value="Rajdhani College">Rajdhani College</option>
+                <option value="Satyawati College">Satyawati College</option>
+                <option value="Shivaji College">Shivaji College</option>
+                <option value="Sri Aurobindo College">Sri Aurobindo College</option>
+                <option value="Sri Guru Nanak Dev Khalsa College">Sri Guru Nanak Dev Khalsa College</option>
+                <option value="Sri Venkateswara College">Sri Venkateswara College</option>
+                <option value="Swami Shraddhanand College">Swami Shraddhanand College</option>
+                <option value="Zakir Husain Delhi College">Zakir Husain Delhi College</option>
+                <option value="Delhi School of Economics">Delhi School of Economics</option>
+                <option value="Faculty of Management Studies">Faculty of Management Studies</option>
+                <option value="National Law University Delhi">National Law University Delhi</option>
+                <!-- Add other options here -->
+            </select>
+        </div>
+
+        <div class="parameters">
+            <label>Select Parameters:</label>
+            <div class="parameter-item">
+                <input type="checkbox" id="parameter1" name="parameter" value="parameter1">
+                <label for="parameter1">NIRF Ranking</label>
+            </div>
+            <div class="parameter-item">
+                <input type="checkbox" id="parameter2" name="parameter" value="parameter2">
+                <label for="parameter2">Acceptance Rate</label>
+            </div>
+            <div class="parameter-item">
+                <input type="checkbox" id="parameter2" name="parameter" value="parameter3">
+                <label for="parameter3">Tuition Fee</label>
+            </div>
+            <div class="parameter-item">
+                <input type="checkbox" id="parameter2" name="parameter" value="parameter3">
+                <label for="parameter3">Courses Available</label>
+            </div>
+            <!-- Add more parameters here -->
+        </div>
+
+        <button onclick="compareColleges()">Submit</button>
+    </div>
+
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = getCookie('username') || 'Guest';
+            document.getElementById('userName').textContent = userName;
+        });
+
+        function compareColleges() {
+            const selectedColleges = [
+                document.getElementById('college1').value,
+                document.getElementById('college2').value,
+                document.getElementById('college3').value
+            ].filter(Boolean); // Filters out any empty selections
+
+            const selectedParameters = Array.from(document.querySelectorAll('input[name="parameter"]:checked'))
+                .map(checkbox => checkbox.nextElementSibling.textContent);
+
+            if (selectedColleges.length === 0) {
+                alert("Please select at least one college.");
+                return;
+            }
+
+            if (selectedParameters.length === 0) {
+                alert("Please select at least one parameter.");
+                return;
+            }
+
+            localStorage.setItem('selectedColleges', JSON.stringify(selectedColleges));
+            localStorage.setItem('selectedParameters', JSON.stringify(selectedParameters));
+
+            window.location.href = 'comparison_table.html';
+        }
+    </script>
+</body>
+</html>

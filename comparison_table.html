@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>College Comparison Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter/College</th>
+                    <!-- College headers will be inserted here -->
+                </tr>
+            </thead>
+            <tbody id="comparisonTableBody">
+                <!-- Parameter rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Predefined data for each parameter for each college
+        const collegeData = {
+            "Shri Ram College of Commerce": {
+            "NIRF_Ranking": "20",
+            "Acceptance_Rate": "70%",
+            "Tuition_Fee": "$30,000",
+            "Courses_Available": "Engineering, Business, Arts"
+    },
+        "Acharya Narendra Dev College": {
+            "NIRF_Ranking": "50",
+            "Acceptance_Rate": "60%",
+            "Tuition_Fee": "$25,000",
+            "Courses_Available": "Engineering, Science, Commerce"
+    },
+        "Aditi Mahavidyalaya": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Aryabhatta College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Bhagini Nivedita College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Bharti College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "College of Vocational Studies": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Daulat Ram College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Delhi College of Arts and Commerce": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Deshbandhu College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Dyal Singh College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Hansraj College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Hindu College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Indraprastha College for Women": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Jesus and Mary College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Kamla Nehru College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Kirori Mal College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Lakshmibai College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Maharaja Agrasen College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Maitreyi College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Miranda House": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "PGDAV College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Ramanujan College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Ramjas College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Rajdhani College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Satyawati College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Shivaji College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Sri Aurobindo College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Sri Guru Nanak Dev Khalsa College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Sri Venkateswara College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Swami Shraddhanand College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Zakir Husain Delhi College": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Delhi School of Economics": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "Faculty of Management Studies": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+        "National Law University Delhi": {
+            "NIRF_Ranking": "35",
+            "Acceptance_Rate": "65%",
+            "Tuition_Fee": "$28,000",
+            "Courses_Available": "Arts, Business, Law"
+    },
+
+            // Add other colleges and data here
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedColleges = JSON.parse(localStorage.getItem('selectedColleges')) || [];
+            const selectedParameters = JSON.parse(localStorage.getItem('selectedParameters')) || [];
+            const tableBody = document.getElementById('comparisonTableBody');
+            const tableHeadRow = document.querySelector('thead tr');
+
+            // Create college headers
+            selectedColleges.forEach(college => {
+                const th = document.createElement('th');
+                th.textContent = college;
+                tableHeadRow.appendChild(th);
+            });
+
+            // Create rows for each parameter
+            selectedParameters.forEach(parameter => {
+                const tr = document.createElement('tr');
+                const parameterCell = document.createElement('td');
+                parameterCell.textContent = parameter;
+                tr.appendChild(parameterCell);
+
+                selectedColleges.forEach(college => {
+                    const dataCell = document.createElement('td');
+                    dataCell.textContent = collegeData[college][parameter] || "N/A";
+                    tr.appendChild(dataCell);
+                });
+
+                tableBody.appendChild(tr);
+            });
+        });
+    </script>
+</body>
+</html>
